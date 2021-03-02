@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="generator" content="Hugo 0.79.0" />
+    <!--Axios Script Ref-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--Axios Script Ref-->
+
+    <title>Klin Academy</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet" />
+  </head>
+  <body class="d-flex h-100">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="mb-auto">
+        <!--div>
+          <h3 class="float-md-start mb-0">Reeler</h3>
+          <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">Contact</a>
+          </nav>
+        </div-->
+      </header>
+
+      <main class="px-3 text-center">
+        <h1 class="display-3" id="pageTitle">KLIN ACADEMY</h1>
+        <!--Spinner-->
+        <div
+          class="spinner-grow text-center mx-auto"
+          style="width: 8rem; height: 8rem; color: lightskyblue"
+          role="status"
+          id="spinner"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <!--Spinner-->
+        <p class="lead" id="subHeadText">Students Port</p>
+        <div class="lead" id="buttons">
+          <a
+            class="btn btn-lg btn-danger fw-bold border-white"
+            onclick="getStudents()"
+            >View All Students</a
+          >
+
+          <button
+            class="btn btn-lg btn-danger dropdown-toggle fw-bold border-white text-center"
+            type="button"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Select Per Course
+          </button>
+
+          <a class="btn btn-lg btn-danger fw-bold border-white text-center">
+            Delete Students
+          </a>
+
+          <a
+            class="btn btn-lg btn-primary fw-bold border-white"
+            onclick="showForm()"
+            >admit New Students
+          </a>
+        </div>
+      </main>
+
+      <div class="mb-4">
+        <!--ALL MOVIES SHOW HERE-->
+        <p
+          class="h4 text-center bg-dark text-white pt-3 pb-3"
+          id="moviesHeader"
+        >
+          All Students
+        </p>
+        <div class="list-group list-group-flush mt-4 mb-4" id="allmovies">
+          <a href="#" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1" id="title"></h5>
+              <small id="year"></small>
+            </div>
+            <small id="genre"></small>
+          </a>
+        </div>
+        <!---ALL MOVIES SHOW HERE-->
+        <a
+          class="btn btn-lg btn-danger fw-bold border-white mt-3 mb-3 mr-4 ml-4 text-center"
+          onclick="closeMoviesList()"
+          id="closeMovies"
+          >Close</a
+        >
+      </div>
+
+      <!--SUBMIT NEW MOVIE FORM-->
+      <form id="movieForm" class="mr-4 ml-4">
+        <p
+          class="h3 text-center pb-2 pt-2 mb-4 bg-dark text-white"
+          id="subHeadText"
+        >
+          Add New Students
+        </p>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            ><h5 class="ml-4">FirstName</h5></label
+          >
+          <input type="text" class="form-control" id="movieTitle" required />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"
+            ><h5>Lastname</h5></label
+          >
+          <input type="number" class="form-control" id="movieYear" required />
+        </div>
+
+        <div class="mb-3 text-left">
+          <label class="form-label h5">Course</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            id="selectedGenre"
+            required
+          >
+            <option value="Action">Maths</option>
+            <option value="Comedy">English</option>
+            <option value="Mystery">Science</option>
+            <option value="Animation">Art</option>
+          </select>
+        </div>
+
+        <button onclick="getForm(event)" class="btn btn-primary w-100 mb-3">
+          Submit
+        </button>
+      </form>
+      <button onclick="closeMoviesList()" class="btn btn-danger" id="closeForm">
+        Close
+      </button>
+      <!------------------------------>
+
+      <!--Movie Added Modal-->
+      <div class="modal modal-dialog" id="movieModal">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1" id="title"></h5>
+          <small id="year"></small>
+        </div>
+        <small id="genre"></small>
+      </div>
+      <!---->
+
+      <!-- Bootstrap core CSS -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+      <script src="bootstrap/js/bootstrap.js"></script>
+      <!--App Script-->
+      <script src="app.js"></script>
+      <!--App Script-->
+
+      <footer class="mt-auto pb-3 text-center">
+        <a href="http://www.ispacegh.com" target="_blank">
+          © iSpace CodeSchool Class
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>
