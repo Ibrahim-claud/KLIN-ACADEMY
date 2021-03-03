@@ -4,7 +4,7 @@ const app = express();
 const cors = require("cors");
 const students = require("./api/route");
 
-const port = "https://reeler.netlify.app";
+const port = "https://klinacademy.netlify.app";
 var corsOptions = {
   origin: port,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",

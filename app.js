@@ -9,7 +9,7 @@ document.getElementById("movieModal").style.display = "none";
 
 //------Request to GET All Movies------
 const prod_url =
-  "https://reeler.netlify.app/.netlify/functions/index/api/students"; //production url
+  "https://klinacademy.netlify.app/.netlify/functions/index/api/students"; //production url
 const dev_url = "http://localhost:9000/.netlify/functions/index/api/students"; //development url
 const requestStudents = (path) => {
   axios.get(path).then(
@@ -39,7 +39,7 @@ const getStudents = () => {
 
 //-------Request to GET All Maths Students------------
 const maths_url_prod =
-  "https://reeler.netlify.app/.netlify/functions/index/api/students/Maths";
+  "https://klinacademy.netlify.app/.netlify/functions/index/api/students/Maths";
 const maths_url_dev =
   "http://localhost:9000/.netlify/functions/index/api/students/Maths";
 const requestMaths = () => {
@@ -69,7 +69,7 @@ const getMathsStudents = () => {
 
 //-------Request to GET All Action Movies------------
 const english_url_prod =
-  "https://reeler.netlify.app/.netlify/functions/index/api/students/English";
+  "https://klinacademy.netlify.app/.netlify/functions/index/api/students/English";
 const english_url_dev =
   "http://localhost:9000/.netlify/functions/index/api/students/English";
 const requestEnglish = () => {
@@ -99,7 +99,7 @@ const getEnglishStudents = () => {
 
 //-------Request to GET All Comedy Movies------------
 const science_url_prod =
-  "https://reeler.netlify.app/.netlify/functions/index/api/students/Science";
+  "https://klinacademy.netlify.app/.netlify/functions/index/api/students/Science";
 const science_url_dev =
   "http://localhost:9000/.netlify/functions/index/api/students/Science";
 const requestScience = () => {
@@ -129,7 +129,7 @@ const getScienceStudents = () => {
 
 //-------Request to GET All Mystery Movies------------
 const art_url_prod =
-  "https://reeler.netlify.app/.netlify/functions/index/api/students/Art";
+  "https://klinacademy.netlify.app/.netlify/functions/index/api/students/Art";
 const art_url_dev =
   "http://localhost:9000/.netlify/functions/index/api/students/Art";
 const requestArt = () => {
