@@ -6,27 +6,6 @@ const Schooldb = require("../db/main");
 router.use(express.urlencoded({ extended: true })); //Body Parser
 router.use(express.json()); //Body Parser
 
-var students = [
-  { id: 1, title: "Jungle Book", genre: "Animation", year: 2003 },
-  { id: 2, title: "Justice League", genre: "Action", year: 2016 },
-  { id: 3, title: "Home Alone", genre: "Comedy", year: 1996 },
-  {
-    id: 4,
-    title: "Harry Potter & The Socerer's Stone",
-    genre: "Mystery",
-    year: 2007,
-  },
-  { id: 5, title: "Lion King", genre: "Animation", year: 2004 },
-  { id: 6, title: "Avengers End Game", genre: "Action", year: 2018 },
-  { id: 7, title: "The Devil Wears Prada", genre: "Comedy", year: 2007 },
-  {
-    id: 8,
-    title: "Chronicles of Narnia",
-    genre: "Mystery",
-    year: 2012,
-  },
-];
-
 //All students from the db
 let allStudents = [];
 
