@@ -1,37 +1,13 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
-const dbconnect = async () => {
-  await mongoose
-    .connect(
-      "mongodb+srv://schooladmin:School1234@cluster0.po1om.mongodb.net/Academy?retryWrites=true&w=majority",
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false,
-        useCreateIndex: true,
-      }
-    )
-    .then(() => console.log("connected to mongoose ... "))
-    .catch((error) => console.error("Error", error));
-};
-
-dbconnect();
-
-const schoolSchema = new Schema({
-  firstName: {
-    type: String,
-  },
-
-  lastName: {
-    type: String,
-  },
-
-  cousre: {
-    type: String,
-  },
+//Schema for Db Document in Collection
+const movieSchema = new mongoose.Schema({
+  fullname: String, //this should be a String
+  course: String, //this should be a String
+  year: Number, //this should be a number
 });
 
-const School = mongoose.model("Students", schoolSchema);
+//Model Class Created from the Scema
+const Movies = mongoose.model("Students", movieSchema); //Pascal Naming Convention because of the Class
 
-module.exports = School;
+module.exports = Movies;

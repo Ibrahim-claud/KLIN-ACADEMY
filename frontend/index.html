@@ -9,7 +9,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!--Axios Script Ref-->
 
-    <title>Klin Academy</title>
+    <title>KLIN ACADEMY</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -35,19 +35,11 @@
   </head>
   <body class="d-flex h-100">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="mb-auto">
-        <!--div>
-          <h3 class="float-md-start mb-0">Reeler</h3>
-          <nav class="nav nav-masthead justify-content-center float-md-end">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="#">Features</a>
-            <a class="nav-link" href="#">Contact</a>
-          </nav>
-        </div-->
-      </header>
+      <header class="mb-auto"></header>
 
       <main class="px-3 text-center">
         <h1 class="display-3" id="pageTitle">KLIN ACADEMY</h1>
+
         <!--Spinner-->
         <div
           class="spinner-grow text-center mx-auto"
@@ -58,11 +50,11 @@
           <span class="visually-hidden">Loading...</span>
         </div>
         <!--Spinner-->
-        <p class="lead" id="subHeadText">Students Port</p>
+        <p class="lead" id="subHeadText">Students Portal</p>
         <div class="lead" id="buttons">
           <a
-            class="btn btn-lg btn-danger fw-bold border-white"
-            onclick="getStudents()"
+            class="btn btn-lg btn-success fw-bold border-white"
+            onclick="getMovies()"
             >View All Students</a
           >
 
@@ -75,16 +67,64 @@
           >
             Select Per Course
           </button>
-
-          <a class="btn btn-lg btn-danger fw-bold border-white text-center">
-            Delete Students
+          <a
+            class="btn btn-lg btn-dark fw-bold border-white text-center"
+            onclick="showdeleteMovies()"
+          >
+            Delete Student
           </a>
-
+          <a
+            class="btn btn-lg btn-warning fw-bold border-white text-center"
+            onclick="showupdateMovies()"
+          >
+            Update Student
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-dark"
+            aria-labelledby="dropdownMenuButton"
+          >
+            <li>
+              <a
+                class="dropdown-item"
+                id="AnimationGenre"
+                href="#"
+                onclick="getAnimationMovies()"
+                >Maths</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                id="ActionGenre"
+                href="#"
+                onclick="getActionMovies()"
+                >English</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                id="ComedyGenre"
+                href="#"
+                onclick="getComedyMovies()"
+                >Science</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                id="MysteryGenre"
+                href="#"
+                onclick="getMysteryMovies()"
+                >Arts</a
+              >
+            </li>
+          </ul>
           <a
             class="btn btn-lg btn-primary fw-bold border-white"
             onclick="showForm()"
-            >admit New Students
-          </a>
+            >Admit New Student</a
+          >
         </div>
       </main>
 
@@ -97,7 +137,7 @@
           All Students
         </p>
         <div class="list-group list-group-flush mt-4 mb-4" id="allmovies">
-          <a href="#" class="list-group-item list-group-item-action">
+          <a href="#" id="link" class="list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1" id="title"></h5>
               <small id="year"></small>
@@ -106,13 +146,52 @@
           </a>
         </div>
         <!---ALL MOVIES SHOW HERE-->
+
+        <!--ALL DELETE MOVIES LIST SHOW HERE-->
+
+        <!---ALL DELETE MOVIES LIST SHOW HERE-->
+
+        <!---ALL DELETE MOVIES DROPDOWN LIST SHOW HERE-->
+        <p
+          class="h4 text-center bg-dark text-white pt-3 pb-3"
+          id="delmoviesHeader"
+        ></p>
+
+        <div class="list-group list-group-flush mt-4 mb-4" id="alldelmovies">
+          <a href="#" id="link" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1" id="deltitle"></h5>
+              <small id="delyear"></small>
+            </div>
+            <div class="d-flex w-100 justify-content-between">
+              <small id="delgenre"></small>
+              <button
+                class="btn btn-sm btn-danger fw-bold border-white text-center"
+              >
+                Delete
+              </button>
+            </div>
+          </a>
+        </div>
+
         <a
           class="btn btn-lg btn-danger fw-bold border-white mt-3 mb-3 mr-4 ml-4 text-center"
-          onclick="closeMoviesList()"
-          id="closeMovies"
-          >Close</a
+          id="closeMovies2"
+          >Delete</a
         >
       </div>
+      <!---ALL DELETE MOVIES DROPDOWN LIST SHOW HERE-->
+
+      <a
+        class="btn btn-lg btn-danger fw-bold border-white mt-3 mb-3 mr-4 ml-4 text-center"
+        onclick="closeMoviesList()"
+        id="closeMovies"
+        >Close</a
+      >
+
+      <!--MOVIE UPDATE FORM-->
+      <form id="movieUpdateForm" class="mr-4 ml-4"></form>
+      <!--MOVIE UPDATE FORM-->
 
       <!--SUBMIT NEW MOVIE FORM-->
       <form id="movieForm" class="mr-4 ml-4">
@@ -120,19 +199,19 @@
           class="h3 text-center pb-2 pt-2 mb-4 bg-dark text-white"
           id="subHeadText"
         >
-          Add New Students
+          Add New Student
         </p>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label"
-            ><h5 class="ml-4">FirstName</h5></label
+            ><h5 class="ml-4">Full Name</h5></label
           >
           <input type="text" class="form-control" id="movieTitle" required />
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label"
-            ><h5>Lastname</h5></label
+            ><h5>Admission Year</h5></label
           >
-          <input type="text" class="form-control" id="movieYear" required />
+          <input type="number" class="form-control" id="movieYear" required />
         </div>
 
         <div class="mb-3 text-left">
@@ -146,7 +225,7 @@
             <option value="Action">Maths</option>
             <option value="Comedy">English</option>
             <option value="Mystery">Science</option>
-            <option value="Animation">Art</option>
+            <option value="Animation">Arts</option>
           </select>
         </div>
 
