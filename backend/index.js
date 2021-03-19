@@ -5,7 +5,10 @@ const students = require("./routes/api");
 
 const port = process.env.PORT || 3500;
 var corsOptions = {
-  origin: [port] /*"https://reeler.netlify.app", "http://127.0.0.1:5500"]*/,
+  origin: [
+    port,
+    "https://klinacademy.netlify.app",
+  ] /*"https://reeler.netlify.app", "http://127.0.0.1:5500"]*/,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   optionsSuccessStatus: 200,
 };
